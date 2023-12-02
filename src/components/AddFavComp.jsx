@@ -69,7 +69,7 @@ const AddFavComp = () => {
       <form>
         <div className='px-10'>
           <h2 className='font-semibold text-lg'>Results : </h2>
-          <div className='flex flex-col overflow-y-scroll h-[20vh] p-2'>
+          <div className='flex flex-col overflow-y-scroll p-2'>
             {loading ? <AiOutlineLoading className='animate-spin' size={'3vw'} />
               : search === "" ? <div className='text-green-600'>
                 Enter package names to search
@@ -78,7 +78,7 @@ const AddFavComp = () => {
                   No Such package found
                 </div>
                   : npmChoices?.map(choice => {
-                    return <div className='flex items-center hover:bg-cyan-100 hover:py-1' onClick={() => setFormObj({ ...formObj, choice: choice.package.name })}>
+                    return <div className='flex items-center h-[20vh] hover:bg-cyan-100 hover:py-1' onClick={() => setFormObj({ ...formObj, choice: choice.package.name })}>
                       <input type='radio' name='choice' value={choice.package.name} className='accent-cyan-300 mt-1 mx-2' checked={formObj.choice === choice.package.name} onChange={() => setFormObj({ ...formObj, choice: choice.package.name })} />
                       <label>{choice.package.name}</label>
                     </div>
