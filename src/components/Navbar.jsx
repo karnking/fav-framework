@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -10,15 +10,25 @@ const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [showMenu, setShowMenu] = useState(false)
-
+  useEffect(()=>{
+    document.body.addEventListener("click",()=>setShowMenu(false))
+    return ()=>{
+      document.body.removeEventListener("click")
+    }
+  },[])
+  const handleHamburger = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setShowMenu(prev=>!prev)
+  }
   return (
     <nav className='items-center bg-cyan-200 text-slate-500 font-sans uppercase z-10 w-full p-3 flex justify-around font-bold'>
       <div className='block md:hidden'>
-        <GiHamburgerMenu size={'2rem'} onClick={() => setShowMenu(prev=>!prev)} />
-        {showMenu && <nav className='flex flex-col absolute border-[1px] h-[10vh] bg-white border-black'>
+        <GiHamburgerMenu size={'2rem'} onClick={handleHamburger} />
+        {showMenu && <nav className='flex flex-col z-20 absolute border-[1px] bg-white border-black'>
           {links?.map(linkObj => {
             return <>
-              <Link className='text-base capitalize border-black p-2' onClick={()=>setShowMenu(false)} to={linkObj.path}>{linkObj.title}</Link>
+              <Link className={`text-base capitalize border-black p-2 hover:bg-slate-500 hover:text-white ${location.pathname === '/' + linkObj.path ? 'bg-slate-200' : ''}`} onClick={()=>setShowMenu(false)} to={linkObj.path}>{linkObj.title}</Link>
               <hr />
             </>
           })}
