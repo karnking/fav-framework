@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className='items-center bg-cyan-200 text-slate-500 font-sans uppercase z-10 w-full p-3 flex justify-around font-bold'>
       {links?.map(linkObj => {
         return <>
-          <Link className={`hover:bg-cyan-500 hover:text-white rounded-md p-2 ${location.pathname==='/'+linkObj.path ? 'bg-white' : ''}`} to={linkObj.path}>{linkObj.title}</Link>
+          <Link className={`hover:bg-cyan-500 hover:text-white rounded-md text-center p-1 md:p-2 ${location.pathname==='/'+linkObj.path ? 'bg-white' : ''}`} to={linkObj.path}>{linkObj.title}</Link>
         </>
       })}
       <div className='w-[50%] flex justify-end'>

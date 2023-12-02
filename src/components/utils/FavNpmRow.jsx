@@ -21,7 +21,7 @@ const FavNpmRow = ({ data }) => {
     return (
         <>
             <tr className='bg-white border-b justify-center w-full transition duration-300 ease-in-out hover:bg-gray-100'>
-                <td className='px-6 py-2 whitespace-nowrap text-center border-r-2'>{choice}</td>
+                <td className='px-6 py-2 whitespace-nowrap text-center border-r-2'>{choice.length<15 ? choice : choice.substring(0,15) + "...."}</td>
                 <td className='px-6 py-2 flex w-full justify-center items-center mt-1 gap-8 whitespace-nowrap'>
                     <FaEye className='cursor-pointer text-cyan-500' onClick={showFav} />
                     <FaEdit className='cursor-pointer text-green-500' onClick={editFav} />
