@@ -21,6 +21,7 @@ Live at : https://fav-framework.vercel.app/
 **Navigation with React Router**: Utilizing React Router, the project provides a smooth and dynamic navigation experience, allowing users to move between different sections of the application effortlessly.
 
 ## Tech Stack Used :
+<div>
 <table style="width: 100%; border: none;" cellspacing="0" cellpadding="0" border="0">
   <tr>
     <th >React</th>
@@ -38,6 +39,19 @@ Live at : https://fav-framework.vercel.app/
   
 </table>
 
+## Flow
+
+```mermaid
+graph TD;
+ App-->HomePage
+HomePage-->FavouritesList
+HomePage-->AddFavoritePage
+
+```
+
+---
+</div>
+</div>
 
 
 
